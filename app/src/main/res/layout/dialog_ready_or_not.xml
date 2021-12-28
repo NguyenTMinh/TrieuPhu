@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="@dimen/dialog_width"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_dialog_ann"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500"
+            android:padding="8dp"
+            android:text="@string/anno"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_txt_ann"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_light"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/anno_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_light"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/bt_quit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_bt_quit" />
+
+            <Button
+                android:id="@+id/bt_ready"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_bt_ready" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

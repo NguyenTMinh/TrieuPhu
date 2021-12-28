@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:background="@color/black_light"
+        android:orientation="vertical"
+        android:layout_width="@dimen/dialog_width"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_dialog_ann_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500"
+            android:padding="8dp"
+            android:text="@string/name_player_ann"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:inputType="text"
+            android:autofillHints="username"
+            android:layout_margin="5dp"
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:hint="@string/name_player_ann"
+            android:textColorHint="@color/white_grey"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/bt_quit_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_bt_quit" />
+
+            <Button
+                android:id="@+id/bt_ok"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ok" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

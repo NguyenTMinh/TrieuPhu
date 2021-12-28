@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:id="@+id/layout_home_after_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_icon_in_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:contentDescription="@string/desc"
+            android:src="@drawable/atp__icon_logo_in_app" />
+
+        <ImageButton
+            android:id="@+id/bt_play"
+            android:layout_width="240dp"
+            android:layout_height="58dp"
+            android:layout_below="@id/iv_icon_in_app"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:background="@null"
+            android:contentDescription="@string/desc"
+            android:scaleType="fitCenter"
+            android:src="@drawable/atp_button_play" />
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_play"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:id="@+id/bt_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:contentDescription="@string/desc"
+                android:src="@drawable/atp__activity_home_button_about" />
+
+            <ImageButton
+                android:id="@+id/bt_highscore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@null"
+                android:contentDescription="@string/desc"
+                android:src="@drawable/atp__activity_home_button_archivement" />
+
+            <ImageButton
+                android:id="@+id/bt_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:contentDescription="@string/desc"
+                android:src="@drawable/atp__activity_home_button_setting" />
+        </TableRow>
+    </RelativeLayout>
+</layout>

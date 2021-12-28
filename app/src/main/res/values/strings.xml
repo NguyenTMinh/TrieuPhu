@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Trieu Phu</string>
+    <string name="desc">desc</string>
+    <string name="high_score">HIGH SCORE</string>
+    <string name="nhac_nen">Nhạc nền</string>
+    <string name="am_thanh">Âm thanh</string>
+    <string name="about">About</string>
+    <string name="about_content"><b>Ai là triệu phú</b></string>
+    <string name="version">Phiên bản: 1.0.0</string>
+    <string name="design">Design:</string>
+    <string name="hide">HIDE</string>
+    <string name="anno">Thông báo</string>
+    <string name="anno_content">Bạn đã sẵn sàng?</string>
+    <string name="txt_bt_quit">Thoát</string>
+    <string name="txt_bt_ready">Sẵn sàng</string>
+    <string name="name_player_ann">Nhập tên của bạn</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Hủy bỏ</string>
+    <string name="give_up">Bạn muốn từ bỏ cuộc chơi?</string>
+    <string name="change_question">Bạn muốn thay đổi câu hỏi</string>
+    <string name="remove_5050">Bạn muốn loại bỏ 2 đáp án sai</string>
+    <string name="audience_help">Bạn muốn trợ giúp từ khán giả</string>
+    <string name="call_help">Bạn muốn gọi trợ giúp từ người quen</string>
+    <string name="title_audience">Ý kiến khán giả</string>
+    <string name="title_call_help">Gọi điện cho người thân</string>
+    <string name="audience_answer_label">A\t\t\t\t\t\tB\t\t\t\t\t\tC\t\t\t\t\t\tD</string>
+    <string name="grandpa">Ông</string>
+    <string name="grandma">Bà</string>
+    <string name="pa">Bố</string>
+    <string name="ma">Mẹ</string>
+    <string name="advise">nghĩ đó là đáp án</string>
+    <string name="open_drawer">open</string>
+    <string name="close_drawer">close</string>
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:id="@+id/layout_audience"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/atp__activity_player_layout_help_call_audience_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="9">
+
+        <RelativeLayout
+            android:paddingTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="6">
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barchart"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/audience_answer_label"
+            android:textColor="@color/yellow"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_audience_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/button_confirm_audience"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="@string/ok"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/layout_audience"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-20dp"
+        android:background="@drawable/atp__activity_player_layout_help_call_title_background"
+        android:gravity="center"
+        android:text="@string/title_audience"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

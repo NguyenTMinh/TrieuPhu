@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/atp__activity_player_layout_money_background"
+        android:orientation="vertical">
+
+        <TableRow
+            android:weightSum="10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/high_score_item_height"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:contentDescription="@string/desc"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_music_bg" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_weight="6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nhac_nen"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                app:trackTint="@color/color_switch"
+                android:id="@+id/sw_bg_music"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:weightSum="10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/high_score_item_height"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:contentDescription="@string/desc"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_volume_sound" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_weight="6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/am_thanh"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                app:trackTint="@color/color_switch"
+                android:id="@+id/sw_bg_sound"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+
+    </LinearLayout>
+</layout>

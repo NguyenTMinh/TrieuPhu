@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/container_play_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="8dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_1000">
+
+            <ImageButton
+                android:id="@+id/bt_profile"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:contentDescription="@string/desc"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_no_image" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <ProgressBar
+                    android:indeterminateDrawable="@drawable/progress_time"
+                    android:id="@+id/progressBar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:progress="1000" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:padding="8dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:drawableStartCompat="@drawable/atp__activity_profile_icon_money" />
+
+        </RelativeLayout>
+
+        <TableRow
+            android:id="@+id/tr_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_header"
+            android:layout_marginTop="16dp"
+            android:weightSum="5">
+
+            <ImageButton
+                android:id="@+id/bt_give_up"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:contentDescription="@string/desc"
+                android:scaleType="fitCenter"
+                android:src="@drawable/atp__activity_player_button_image_help_stop_active" />
+
+            <ImageButton
+                android:id="@+id/bt_change_question"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:contentDescription="@string/desc"
+                android:scaleType="fitCenter"
+                android:src="@drawable/atp__activity_player_button_image_help_change_question_active" />
+
+            <ImageButton
+                android:id="@+id/bt_50_50"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:contentDescription="@string/desc"
+                android:scaleType="fitCenter"
+                android:src="@drawable/atp__activity_player_button_image_help_5050_active" />
+
+            <ImageButton
+                android:id="@+id/bt_ask_audience"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:contentDescription="@string/desc"
+                android:scaleType="fitCenter"
+                android:src="@drawable/atp__activity_player_button_image_help_audience_active" />
+
+            <ImageButton
+                android:id="@+id/bt_call_help"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:contentDescription="@string/desc"
+                android:scaleType="fitCenter"
+                android:src="@drawable/atp__activity_player_button_image_help_call_active" />
+        </TableRow>
+
+        <TextView
+            android:id="@+id/tv_question_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tr_help"
+            android:layout_alignTop="@id/tv_question_order"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/atp__activity_player_layout_play_question_background"
+            android:gravity="center"
+            android:padding="32dp"
+            android:shadowColor="@color/purple_200"
+            android:shadowRadius="5"
+            android:textColor="@color/orange"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_question_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tr_help"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/atp__activity_player_layout_play_order_question"
+            android:gravity="center"
+            android:scaleX="0.8"
+            android:shadowColor="@color/purple_500"
+            android:shadowRadius="3"
+            android:textColor="@color/purple_500"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/layout_contains_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_question_display"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ans_0"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/frame_answer_height"
+                android:background="@drawable/background_answer"
+                android:gravity="center_vertical"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:scaleX="0.8"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ans_1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/frame_answer_height"
+                android:background="@drawable/background_answer"
+                android:gravity="center_vertical"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:scaleX="0.8"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ans_2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/frame_answer_height"
+                android:background="@drawable/background_answer"
+                android:gravity="center_vertical"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:scaleX="0.8"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ans_3"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/frame_answer_height"
+                android:background="@drawable/background_answer"
+                android:gravity="center_vertical"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:scaleX="0.8"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
