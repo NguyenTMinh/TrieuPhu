@@ -50,7 +50,7 @@ public class HomeViewModel extends ViewModel {
     }
 
     public void setContext(Context context) {
-        this.context = context;
+        this.context = context.getApplicationContext();
         if (!isCreated){
             initData();
         }

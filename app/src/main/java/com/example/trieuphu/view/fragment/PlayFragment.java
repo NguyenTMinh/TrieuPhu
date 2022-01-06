@@ -20,8 +20,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.trieuphu.R;
+import com.example.trieuphu.adapter.LevelAdapter;
 import com.example.trieuphu.databinding.DialogReadyOrNotBinding;
 import com.example.trieuphu.databinding.FragmentPlayBinding;
 import com.example.trieuphu.intf.IRuntime;
@@ -161,32 +163,10 @@ public class PlayFragment extends BaseFragment<PlayViewModel, FragmentPlayBindin
 
     //rec
     private void initLevelViews() {
-        for (int i = viewModel.getLevels().size() -1; i >= 0; i--) {
-            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.level_line,null,false);
-            textView.setText(viewModel.getLevels().get(i).getPriceAsText());
-            if((i+1)%5==0){
-                textView.setBackgroundResource(R.drawable.atp__activity_player_image_money_milestone);
-                switch (i+1){
-                    case 15:{
-                        textView.setTextColor(getResources().getColor(R.color.red_orange));
-                        textView.setTextSize(30);
-                        break;
-                    }
-                    case 10:{
-                        textView.setTextColor(getResources().getColor(R.color.orange));
-                        textView.setTextSize(28);
-                        break;
-                    }
-                    case 5:{
-                        textView.setTextColor(getResources().getColor(R.color.green));
-                        textView.setTextSize(26);
-                        break;
-                    }
-                }
-            }
-            dataBinding.navLevel.layoutLevel.addView(textView);
-        }
-
+        LevelAdapter adapter = new LevelAdapter(viewModel.getReverseLevels(),context);
+        dataBinding.navLevel.layoutLevel.setAdapter(adapter);
+        dataBinding.navLevel.layoutLevel.setLayoutManager(new LinearLayoutManager(context));
+        dataBinding.navLevel.layoutLevel.setHasFixedSize(false);
         count = new CountDownTimer(4000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {

@@ -18,6 +18,7 @@ import com.example.trieuphu.util.Database;
 import com.example.trieuphu.util.SoundRepo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -29,6 +30,7 @@ public class PlayViewModel extends ViewModel {
     // su li animation khi bat dau vao man level
     private MutableLiveData<Integer> currentIndex;
     private List<Level> levels;
+    private List<Level> listClone;
     private List<Player> players;
     private Context context;
     private boolean isCreated = false;
@@ -36,7 +38,6 @@ public class PlayViewModel extends ViewModel {
     private int mediaCurrentPlaying;
     private int currentLevel = 0;
     private boolean[] help;
-    private SoundRepo soundRepo;
 
     public PlayViewModel(){
         playerMoneyLiveData = new MutableLiveData<>();
@@ -126,12 +127,12 @@ public class PlayViewModel extends ViewModel {
         return help;
     }
 
-    public SoundRepo getSoundRepo() {
-        return soundRepo;
+    public List<Level> getReverseLevels(){
+        return listClone;
     }
 
     public void setContext(Context context) {
-        this.context = context;
+        this.context = context.getApplicationContext();
         help = new boolean[4];
         if(!isCreated){
             init();
@@ -142,6 +143,8 @@ public class PlayViewModel extends ViewModel {
         //soundRepo = SoundRepo.getInstance(context);
         Database database = new Database(context);
         levels = database.getLevels();
+        listClone = (List<Level>) new ArrayList<>(levels).clone();
+        Collections.reverse(listClone);
         for (int i = 0; i < 15; i++) {
                 List<Question> list = database.getQuestions(i);
                 listQuestions.add(list);
