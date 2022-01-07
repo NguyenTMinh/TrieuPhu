@@ -27,8 +27,6 @@ public class PlayViewModel extends ViewModel {
     private MutableLiveData<Integer> timeMutableLiveData;
     private MutableLiveData<Integer> playerMoneyLiveData;
     private List<List<Question>> listQuestions;
-    // su li animation khi bat dau vao man level
-    private MutableLiveData<Integer> currentIndex;
     private List<Level> levels;
     private List<Level> listClone;
     private List<Player> players;
