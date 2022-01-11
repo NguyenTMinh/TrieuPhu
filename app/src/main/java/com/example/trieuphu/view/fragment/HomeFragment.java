@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.view.View;
 import android.view.Window;
@@ -45,11 +46,10 @@ public class HomeFragment extends BaseFragment<HomeViewModel,FragmentHomeBinding
         mediaPlayer = MediaPlayer.create(getContext(),R.raw.bgmusic);
         mediaPlayer.setLooping(true);
         dataBinding.layoutAl.layoutHomeAfterLoad.setVisibility(View.GONE);
-        viewModel.setContext(context);
         if (rankList != null){
             viewModel.setRankList(rankList);
         }
-        showHome();
+        new MappingAsync().execute();
 
         //---on click
         dataBinding.layoutAl.btHighscore.setOnClickListener(v ->{
@@ -67,7 +67,7 @@ public class HomeFragment extends BaseFragment<HomeViewModel,FragmentHomeBinding
 
         dataBinding.layoutAl.btPlay.setOnClickListener(v -> {
             mediaPlayer.stop();
-            actionClick.onClick(Constant.KEY_TO_PLAY,viewModel.getRankList().getValue());
+            actionClick.onClick(Constant.KEY_TO_PLAY,null);
         });
 
         //---Observe the data
@@ -121,4 +121,18 @@ public class HomeFragment extends BaseFragment<HomeViewModel,FragmentHomeBinding
         rankList = players;
     }
 
+    class MappingAsync extends AsyncTask<Void,Void,Void>{
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            viewModel.setContext(context);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void unused) {
+            showHome();
+            super.onPostExecute(unused);
+        }
+    }
 }

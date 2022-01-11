@@ -45,7 +45,6 @@ public class PlayFragment extends BaseFragment<PlayViewModel, FragmentPlayBindin
     private boolean isGameStarted = false;
     private boolean isSoundPlaying = false;
     private boolean onStartGame = false;
-    private List<Player> players;
     private CountDownTimer timer;
     private CountDownTimer count;
     private SoundRepo soundRepo;
@@ -65,7 +64,6 @@ public class PlayFragment extends BaseFragment<PlayViewModel, FragmentPlayBindin
     protected void init() {
         soundRepo = SoundRepo.getInstance(context);
         viewModel.setContext(context);
-        viewModel.setPlayers(players);
         dataBinding.includedLay.containerPlayView.setVisibility(View.GONE);
         dataBinding.drawerLayout.openDrawer(GravityCompat.START);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(requireActivity(),dataBinding.drawerLayout,R.string.open_drawer,R.string.close_drawer){
@@ -339,7 +337,7 @@ public class PlayFragment extends BaseFragment<PlayViewModel, FragmentPlayBindin
         Button buttonOK = dialog.findViewById(R.id.bt_ok);
         buttonExit.setOnClickListener(v -> {
             dialog.cancel();
-            actionClick.onClick(Constant.KEY_TO_HOME,players);
+            actionClick.onClick(Constant.KEY_TO_HOME,viewModel.getPlayers());
         });
         buttonOK.setOnClickListener(v -> {
             String name = editText.getText().toString();
@@ -473,9 +471,6 @@ public class PlayFragment extends BaseFragment<PlayViewModel, FragmentPlayBindin
     }
 
     //trans data
-    public void passPlayers(List<Player> list){
-        players = list;
-    }
 
     public void countTime(long millstime){
          timer = new CountDownTimer(millstime,1000) {

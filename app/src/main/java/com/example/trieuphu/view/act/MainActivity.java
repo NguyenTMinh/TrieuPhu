@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements OnActionClick {
             case Constant.KEY_TO_PLAY:{
                 PlayFragment playFragment = new PlayFragment();
                 playFragment.setActionClick(this);
-                playFragment.passPlayers((List<Player>) data);
                 tranFragment(R.id.main_container,playFragment,false,true,
                         R.anim.enter_from_left,R.anim.slow_disappear,0,R.anim.dive_to_the_bottom);
                 break;

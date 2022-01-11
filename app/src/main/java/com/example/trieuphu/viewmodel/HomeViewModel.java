@@ -13,6 +13,7 @@ import com.example.trieuphu.model.Level;
 import com.example.trieuphu.model.Player;
 import com.example.trieuphu.model.Question;
 import com.example.trieuphu.util.Constant;
+import com.example.trieuphu.util.DataRepository;
 import com.example.trieuphu.util.Database;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class HomeViewModel extends ViewModel {
     private MutableLiveData<Boolean> switchMusicBGState;
     private MutableLiveData<List<Player>> rankList;
     private SharedPreferences preferences;
-    private Context context;
+    private DataRepository dataRepository;
     private boolean isCreated = false;
 
     public HomeViewModel(){
@@ -50,7 +51,7 @@ public class HomeViewModel extends ViewModel {
     }
 
     public void setContext(Context context) {
-        this.context = context.getApplicationContext();
+        dataRepository = DataRepository.getInstance(context);
         if (!isCreated){
             initData();
         }
@@ -67,20 +68,8 @@ public class HomeViewModel extends ViewModel {
     }
 
     private void initData(){
-        Database database = new Database(context);
-        preferences = context.getSharedPreferences(Constant.SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        List<Player> list = new ArrayList<>();
-        for (int i = 1; i <= 10 ; i++) {
-            String key = i+"";
-            if (preferences.contains(key)){
-                String line = preferences.getString(key,Constant.NO_INFO);
-                String[] playerData = line.split("_");
-                Player player = new Player(playerData[0],Integer.parseInt(playerData[1]));
-                list.add(player);
-            }else {
-                break;
-            }
-        }
+        preferences = dataRepository.getPreferences();
+        List<Player> list = dataRepository.getPlayerList();
         setRankList(list);
         isCreated = true;
     }

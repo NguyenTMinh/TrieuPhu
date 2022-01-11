@@ -1,10 +1,6 @@
 package com.example.trieuphu.viewmodel;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -14,11 +10,9 @@ import com.example.trieuphu.model.Level;
 import com.example.trieuphu.model.Player;
 import com.example.trieuphu.model.Question;
 import com.example.trieuphu.util.Constant;
-import com.example.trieuphu.util.Database;
-import com.example.trieuphu.util.SoundRepo;
+import com.example.trieuphu.util.DataRepository;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -30,18 +24,17 @@ public class PlayViewModel extends ViewModel {
     private List<Level> levels;
     private List<Level> listClone;
     private List<Player> players;
-    private Context context;
-    private boolean isCreated = false;
     private int playerCurrentAnswer;
     private int mediaCurrentPlaying;
     private int currentLevel = 0;
     private boolean[] help;
+    private DataRepository repository;
 
     public PlayViewModel(){
         playerMoneyLiveData = new MutableLiveData<>();
         questionMutableLiveData = new MutableLiveData<>();
         timeMutableLiveData = new MutableLiveData<>();
-        listQuestions = new ArrayList<>();
+        help = new boolean[4];
     }
 
     public int getMediaCurrentPlaying() {
@@ -50,10 +43,6 @@ public class PlayViewModel extends ViewModel {
 
     public void setMediaCurrentPlaying(int mediaCurrentPlaying) {
         this.mediaCurrentPlaying = mediaCurrentPlaying;
-    }
-
-    public void setPlayers(List<Player> players) {
-        this.players = players;
     }
 
     public List<Player> getPlayers() {
@@ -130,24 +119,11 @@ public class PlayViewModel extends ViewModel {
     }
 
     public void setContext(Context context) {
-        this.context = context.getApplicationContext();
-        help = new boolean[4];
-        if(!isCreated){
-            init();
-        }
-    }
-
-    private void init() {
-        //soundRepo = SoundRepo.getInstance(context);
-        Database database = new Database(context);
-        levels = database.getLevels();
-        listClone = (List<Level>) new ArrayList<>(levels).clone();
-        Collections.reverse(listClone);
-        for (int i = 0; i < 15; i++) {
-                List<Question> list = database.getQuestions(i);
-                listQuestions.add(list);
-            }
-        isCreated = true;
+        repository = DataRepository.getInstance(context);
+        levels = repository.getLevelList();
+        listClone = repository.getReverseLevelList();
+        listQuestions = repository.getQuestionList();
+        players = repository.getPlayerList();
     }
 
     public boolean checkAnswer(int answer){
